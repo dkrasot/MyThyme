@@ -30,8 +30,9 @@ public class User {
     private String lastName;
 
     @NotNull
-    @Email
+    @Email(message="Please provide a valid email address")
     private String email;
+    //TODO Email Hibernate validator - how to get results? payload=BlahBlah.class ? how to catch errors with @Email
 
     public User() {}
 

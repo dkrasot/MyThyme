@@ -3,7 +3,7 @@
 <head>
     <title>Twitter</title>
     <link rel="stylesheet" type="text/css"
-          th:href="@{/resources/style.css}"></link>
+          th:href="@{/resources/style.css}"/>
 </head>
 <body>
     <div id="header" th:include="page :: header"></div>
@@ -28,7 +28,7 @@
                    th:class="${#fields.hasErrors('lastName')}? 'error'" /><br/>
 
             <label th:class="${#fields.hasErrors('email')}? 'error'">Email</label>:
-            <input type="text" th:field="*{email}"
+            <input type="email" th:field="*{email}"
                    th:class="${#fields.hasErrors('email')}? 'error'" /><br/>
 
             <label th:class="${#fields.hasErrors('username')}? 'error'">Username</label>:

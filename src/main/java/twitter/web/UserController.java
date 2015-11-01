@@ -34,7 +34,7 @@ public class UserController {
     }
 
     @RequestMapping(value="/register", method = RequestMethod.POST)
-    public String processRegistration(@Valid User user, Errors errors){
+    public String processRegistration( @Valid User user, Errors errors){
         //1. BindingResult can be used instead of Errors
         //2. note - for example: if name of User in Model would be profile: @Valid User profile then we must add @ModelAttribute("profile) like that;
         //method (@Valid @ModelAttribute("profile) User profile, ...) {...   in HTML template - th:object="${profile}"
