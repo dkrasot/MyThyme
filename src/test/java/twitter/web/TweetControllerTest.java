@@ -83,7 +83,6 @@ public class TweetControllerTest {
                 .andExpect(model().attributeExists("tweetList"))
                 .andExpect(model().attribute("tweetList", hasItems(expectedTweets.toArray())));
 
-        new Tweet()
     }
 
 
