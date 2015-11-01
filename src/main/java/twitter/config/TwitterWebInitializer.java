@@ -11,8 +11,7 @@ import twitter.web.WebConfig;
 // creates DispatcherServlet (using getServletCC (WebConfig) for creating Spring app ctx)
 // and ContextLoaderListener (using getRootCC -> 2nd app ctx )
 
-
-// ThymeleafExample - 2 xmls for Spring resolving of JSP files in WEB-INF dir
+// in project ThymeleafExample - 2 xmls for Spring resolving of JSP files in WEB-INF dir
 // + xmls for LOG4J config
 public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override

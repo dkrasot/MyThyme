@@ -19,12 +19,12 @@ body {
 
 .tweetList ul {
     list-style: none;
-    margin-left: 0px;
-    padding-left: 0px;
+    margin-left: 0;
+    padding-left: 0;
 }
 
 .tweetList ul li:first-child {
-    border-top: 0px;
+    border-top: 0;
 }
 
 .tweetList ul li {
@@ -41,4 +41,18 @@ body {
 
 .tweetForm h1 {
     font-size: 16pt;
+}
+
+
+label.error {
+    color: red;
+}
+
+input.error {
+    background-color: #ffcccc;
+}
+
+div.errors {
+    background-color: #ffcccc;
+    border: 2px solid red;
 }
