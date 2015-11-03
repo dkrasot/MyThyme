@@ -19,7 +19,7 @@ public class FileUploadController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String processUpload(@RequestPart("file")MultipartFile file) {
+    public String processUpload(@RequestPart("file") MultipartFile file) {
         System.out.println("Filesize is " + file.getSize());
 
         System.out.println("---->  " + file.getName() + "  ::  "  + file.getSize());//TODO comment this sout

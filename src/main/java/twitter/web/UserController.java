@@ -8,11 +8,14 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartResolver;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 import twitter.User;
 import twitter.data.UserRepository;
 
+import javax.servlet.http.Part;
 import javax.validation.Valid;
 import java.io.File;
 import java.io.IOException;
@@ -47,6 +50,21 @@ public class UserController {
 //        }
 //        repo.save(user);
 //        return "redirect:/user/"+ user.getUsername();
+//    }
+
+//    @RequestMapping(value="/register", method=RequestMethod.POST)
+//    public String processRegistration(
+//            @RequestPart(value="profilePictures", required=false) Part fileBytes,
+//            RedirectAttributes redirectAttributes,
+//            @Valid User user,
+//            Errors errors) throws IOException {
+//        if (errors.hasErrors()) {
+//            return "registerForm";
+//        }
+//        repo.save(user);
+//        redirectAttributes.addAttribute("username", user.getUsername());
+//        redirectAttributes.addFlashAttribute(user);
+//        return "redirect:/user/" + user.getUsername();
 //    }
 
     @RequestMapping(value="/register", method = RequestMethod.POST)

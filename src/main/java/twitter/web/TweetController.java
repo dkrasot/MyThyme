@@ -45,7 +45,7 @@ public class TweetController {
     }
 
     @RequestMapping(method = RequestMethod.POST)
-    public String saveTweet(TweetForm form, Model model) throws Exception{
+    public String saveTweet(TweetForm form, Model model) {//throws Exception{
         try {
             repo.save(new Tweet(null, form.getMessage(), new Date(), form.getLatitude(), form.getLongitude()));
             return "redirect:/tweets";
