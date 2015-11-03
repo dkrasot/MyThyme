@@ -12,15 +12,16 @@
     <div id="header" th:include="page :: header"></div>
 
     <div id="content">
-        <div class="tweetView">
-            <div class="tweetMessage" th:text="#{tweet.message}">Tweet message</div>
-            <div>
-                <span class="tweetTime" th:text="#{tweet.time}">Tweet timestamp</span>
-            </div>
-        </div>
+        <h1>Welcome to Spitter</h1>
+
+        <p>Example of form with multipart request</p>
+
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file"/><br/>
+            <input type="submit"/>
+        </form>
     </div>
 
-    <div id="footer" th:include="page :: footer"></div>
-
+    <div id="footer" th:include="page :: copy"></div>
 </body>
 </html>

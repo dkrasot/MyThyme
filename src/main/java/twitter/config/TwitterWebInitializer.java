@@ -3,6 +3,9 @@ package twitter.config;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 import twitter.web.WebConfig;
 
+import javax.servlet.MultipartConfigElement;
+import javax.servlet.ServletRegistration;
+
 /**
  * Created on 30.10.2015.
  */
@@ -30,9 +33,12 @@ public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     }
 
 
-    //    @Override
-//    protected void customizeRegistration(Dynamic registration) {
-//        registration.setMultipartConfig(
-//                new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));
-//    }
+        @Override
+    protected void customizeRegistration(ServletRegistration.Dynamic registration) {
+        registration.setMultipartConfig(new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));
+    }
+//    Кроме поддержки multipart-requests ServletRegistration.Dynamic можно использовать для:
+//      - установки приоритета загрузки вызовом setLoadOnStartup()
+//      - установки параметра инициализации вызовом setInitParameter()
+
 }
