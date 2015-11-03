@@ -60,7 +60,7 @@ public class UserController {
         User user = userForm.toUser();
         repo.save(user);
         MultipartFile profilePicture = userForm.getProfilePicture();
-        profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
+        profilePicture.transferTo(new File("/tmp/user/"+ user.getUsername() + ".jpg"));
 
         return "redirect:/user/"+ user.getUsername();
     }
