@@ -36,8 +36,6 @@ public class UserController {
         return "registerForm";
     }
 
-
-
 //    @RequestMapping(value="/register", method = RequestMethod.POST)
 //    public String processRegistration(
 //            @RequestPart(value = "profilePicture") MultipartFile profilePicture, @Valid User user, Errors errors) throws IOException {
@@ -45,18 +43,6 @@ public class UserController {
 //        // check for place on disk...
 //        return "redirect:/user/"+ user.getUsername();
 //    }
-
-    @RequestMapping(value="/register", method = RequestMethod.POST)
-    public String processRegistration( @Valid UserForm userForm, Errors errors) throws IllegalStateException, IOException {
-        if(errors.hasErrors()){
-            return "registerForm";
-        }
-        User user = userForm.toUser();
-        repo.save(user);
-        MultipartFile profilePicture = userForm.getProfilePicture();
-        profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
-        return "redirect:/user/"+ user.getUsername();
-    }
 
     @RequestMapping(value="/register", method=RequestMethod.POST)
     public String processRegistration(
@@ -81,6 +67,18 @@ public class UserController {
 //for Example: if we add another attr by addAttribute (userId) but don't write it to redirect' {}
 // we will get redirect:/user/usernameValue?userId=25
     }
+
+//    @RequestMapping(value="/register", method = RequestMethod.POST)
+//    public String processRegistration( @Valid UserForm userForm, Errors errors) throws IllegalStateException, IOException {
+//        if(errors.hasErrors()){
+//            return "registerForm";
+//        }
+//        User user = userForm.toUser();
+//        repo.save(user);
+//        MultipartFile profilePicture = userForm.getProfilePicture();
+//        //profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
+//        return "redirect:/user/"+ user.getUsername();
+//    }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public String showUserProfile(@PathVariable String username, Model model){

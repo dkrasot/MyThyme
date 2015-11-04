@@ -53,10 +53,10 @@ public class WebConfig extends WebMvcConfigurerAdapter {
     }
 
     //configuring of params in TwitterWebInitializer because it doesn't have a constructor and setters
-    @Bean
-    public MultipartResolver multipartResolver() throws IOException {
-        return new StandardServletMultipartResolver();
-    }
+//    @Bean
+//    public MultipartResolver multipartResolver() throws IOException {
+//        return new StandardServletMultipartResolver();
+//    }
 
     //alternative to StandardServletMultipartResolver - it doesn't need Servlet 3.0;
     // tmp directory is optional there (by default using tmp loc of Servlet container);
