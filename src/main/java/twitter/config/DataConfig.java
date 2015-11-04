@@ -9,9 +9,6 @@ import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 
 import javax.sql.DataSource;
 
-/**
- * Created on 30.10.2015.
- */
 @Configuration
 public class DataConfig {
 

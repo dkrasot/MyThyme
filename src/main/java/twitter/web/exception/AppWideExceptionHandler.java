@@ -1,16 +1,13 @@
-package twitter.web.exceptions;
+package twitter.web.exception;
 
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-/**
- * Created on 03.11.2015.
- */
 @ControllerAdvice
 public class AppWideExceptionHandler {
 
     @ExceptionHandler(DuplicateTweetException.class)
-    public String handleNotFound() {
+    public String handleDuplicateTweet() {
         return "error/duplicate";
     }
 

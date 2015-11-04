@@ -5,9 +5,6 @@ import org.apache.commons.lang.builder.HashCodeBuilder;
 
 import java.util.Date;
 
-/**
- * Created on 30.10.2015.
- */
 public class Tweet {
 
     private final Long id;

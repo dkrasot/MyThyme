@@ -7,9 +7,6 @@ import org.apache.commons.lang.builder.EqualsBuilder;
 import org.apache.commons.lang.builder.HashCodeBuilder;
 import org.hibernate.validator.constraints.Email;
 
-/**
- * Created on 30.10.2015.
- */
 public class User {
     private Long id;
 

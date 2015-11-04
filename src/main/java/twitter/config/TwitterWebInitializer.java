@@ -6,10 +6,6 @@ import twitter.web.WebConfig;
 import javax.servlet.MultipartConfigElement;
 import javax.servlet.ServletRegistration;
 
-/**
- * Created on 30.10.2015.
- */
-
 //Alternative to web.xml - needs Servlet 3.0+
 // creates DispatcherServlet (using getServletCC (WebConfig) for creating Spring app ctx)
 // and ContextLoaderListener (using getRootCC -> 2nd app ctx )
@@ -33,13 +29,13 @@ public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     }
 
 
+    // 1 max filesize and 2 request size by default - unlimited
+    // 3rd param - max filesize without loading to tmp directory ( 0 means ALL files go to tmp)
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));
+                new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));//2MB 4MB
     }
-//    Кроме поддержки multipart-requests ServletRegistration.Dynamic можно использовать для:
-//      - установки приоритета загрузки вызовом setLoadOnStartup()
-//      - установки параметра инициализации вызовом setInitParameter()
-
+//    ServletRegistration.Dynamic supports configuring of:
+// multipart-requests by setMultipartConfig(), load priorities by setLoadOnStartup(), init params by setInitParameter()
 }

@@ -9,9 +9,6 @@ import twitter.User;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- * Created on 30.10.2015.
- */
 @Repository
 public class JdbcUserRepo implements UserRepository {
     private JdbcOperations jdbc;

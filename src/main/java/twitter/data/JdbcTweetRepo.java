@@ -10,10 +10,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-/**
- * Created on 30.10.2015.
- */
-
 @Repository
 public class JdbcTweetRepo implements TweetRepository {
     private JdbcOperations jdbc;

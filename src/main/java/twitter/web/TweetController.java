@@ -6,15 +6,12 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 import twitter.Tweet;
 import twitter.data.TweetRepository;
-import twitter.web.exceptions.DuplicateTweetException;
-import twitter.web.exceptions.TweetNotFoundException;
+import twitter.web.exception.DuplicateTweetException;
+import twitter.web.exception.TweetNotFoundException;
 
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created on 30.10.2015.
- */
 @Controller
 @RequestMapping("/tweets")
 public class TweetController {
@@ -54,9 +51,4 @@ public class TweetController {
         }
     }
 
-    @ExceptionHandler(DuplicateTweetException.class)
-    public String handleNotFound(){
-        //TODO ??? AppWideExceptionHandler or this ???
-        return "error/duplicate";
-    }
 }

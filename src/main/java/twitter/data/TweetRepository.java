@@ -4,9 +4,6 @@ import twitter.Tweet;
 
 import java.util.List;
 
-/**
- * Created on 30.10.2015.
- */
 public interface TweetRepository {
 
     List<Tweet> findRecentTweets();

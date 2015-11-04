@@ -7,9 +7,6 @@ import twitter.User;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- * Created on 03.11.2015.
- */
 public class UserForm {
     @NotNull
     @Size(min=5, max=16, message="{username.size}")

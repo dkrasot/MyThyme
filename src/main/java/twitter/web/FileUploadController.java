@@ -6,9 +6,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestPart;
 import org.springframework.web.multipart.MultipartFile;
 
-/**
- * Created on 03.11.2015.
- */
 @Controller
 @RequestMapping("/fileupload")
 public class FileUploadController {

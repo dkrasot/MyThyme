@@ -5,9 +5,6 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-/**
- * Created on 30.10.2015.
- */
 public class TweetForm {
 
     @NotNull

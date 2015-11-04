@@ -1,7 +1,4 @@
-package twitter.web.exceptions;
+package twitter.web.exception;
 
-/**
- * Created on 03.11.2015.
- */
 public class DuplicateTweetException extends RuntimeException {
 }

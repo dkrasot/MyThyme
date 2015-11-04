@@ -8,9 +8,6 @@ import org.springframework.core.type.filter.RegexPatternTypeFilter;
 
 import java.util.regex.Pattern;
 
-/**
- * Created on 30.10.2015.
- */
 @Configuration
 @Import(DataConfig.class)
 @ComponentScan(basePackages={"twitter"},
