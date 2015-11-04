@@ -13,9 +13,11 @@
 
     <div id="content">
         <h1>Your Profile</h1>
-        <span th:text="${user.username}">username</span><br/>
-        <span th:text="${user.firstName}">First</span> <span th:text="${user.lastName}">Last</span><br/>
-        <span th:text="${user.email}">email</span>
+        Username: <span th:text="${user.username}">username</span><br/>
+        Name: <span th:text="${user.firstName}">First</span> <span th:text="${user.lastName}">Last</span><br/>
+        Email: <span th:text="${user.email}">email</span>
+        <!--Img: <br/><img th:src="${imageSrc}"></img>-->
+        <!--imgSrc: <br/><span th:text="${imageSrc}">img address</span>-->
     </div>
 
     <div id="footer" th:include="page :: footer"></div>

@@ -14,3 +14,8 @@ create table Users (
 	last_name varchar(30) not null,
 	email varchar(30) not null
 );
+
+-- default user
+insert into Users (username, password, first_name, last_name, email)
+values ('user01', 'pass01', 'Dmytro', 'Krasota', 'dkras@gmail.com');
+commit;
