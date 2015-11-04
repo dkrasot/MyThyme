@@ -19,7 +19,7 @@ public class FileUploadController {
     public String processUpload(@RequestPart("file") MultipartFile file) {
         System.out.println("Filesize is " + file.getSize());
 
-        System.out.println("---->  " + file.getName() + "  ::  "  + file.getSize());//TODO comment this sout
+//        System.out.println("---->  " + file.getName() + "  ::  "  + file.getSize());//TODO comment this sout
 
         return "redirect:/";
     }
