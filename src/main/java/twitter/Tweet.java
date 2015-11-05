@@ -7,6 +7,8 @@ import java.util.Date;
 
 public class Tweet {
 
+    //TODO latitude, longitude OFF; time to postedTime; add User field
+
     private final Long id;
     private final String message;
     private final Date time;
