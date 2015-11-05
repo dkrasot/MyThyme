@@ -21,7 +21,10 @@ import javax.sql.DataSource;
 //@EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    // java.lang.ClassNotFoundException: org.springframework.security.web.access.expression.WebSecurityExpressionHandler
+//was DELETED temporary
+//    public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitializer {
+//    }
+
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -81,3 +84,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 // @EnableWebMvcSecurity - is deprecated - change to @EnableWebSecurity
 
+
+// problem with CSRF; java.lang.ClassNotFoundException: org.springframework.security.web.access.expression.WebSecurityExpressionHandler
