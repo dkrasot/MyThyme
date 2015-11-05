@@ -34,7 +34,9 @@ public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
     @Override
     protected void customizeRegistration(ServletRegistration.Dynamic registration) {
         registration.setMultipartConfig(
-                new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));//2MB 4MB
+                //new MultipartConfigElement("/tmp/twitter/uploads", 2097152, 4194304, 0));
+                new MultipartConfigElement("/", 2097152, 4194304, 0));
+                // location "/" for GlassFish (WebSphere is OK with /tmp/.../uploads/
     }
 //    ServletRegistration.Dynamic supports configuring of:
 // multipart-requests by setMultipartConfig(), load priorities by setLoadOnStartup(), init params by setInitParameter()

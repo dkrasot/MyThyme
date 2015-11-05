@@ -37,48 +37,58 @@ public class UserController {
     }
 
 //    @RequestMapping(value="/register", method = RequestMethod.POST)
-//    public String processRegistration(
-//            @RequestPart(value = "profilePicture") MultipartFile profilePicture, @Valid User user, Errors errors) throws IOException {
+//    public String processRegistration(@RequestPart(value = "profilePicture") MultipartFile profilePicture,
+//                                      @Valid User user, Errors errors)
+//            throws IOException {
 //        profilePicture.transferTo(new File("/data/twitter/"+profilePicture.getOriginalFilename()));
-//        // check for place on disk...
 //        return "redirect:/user/"+ user.getUsername();
 //    }
 
-    @RequestMapping(value="/register", method=RequestMethod.POST)
-    public String processRegistration(
-            @RequestPart(value="profilePicture", required=false) Part fileBytes,
-            RedirectAttributes redirectAttributes,
-            @Valid User user, Errors errors) throws IOException {
-//1. Part - alternative to MultipartFile for Servlet 3.0 containers
-// we don't need configuring of StandardServletMultipartResolver bean if using Part instead of MultipartFile
-//3. If name of User in Model would be profile: @Valid User profile then we must add @ModelAttribute("profile"):
-//  method (@Valid @ModelAttribute("profile) User profile, ...) {...   in HTML template - th:object="${profile}"
-//4. BindingResult can be used instead of Errors
-
-        if (errors.hasErrors()) {
-            return "registerForm";
-        }
-        repo.save(user);
-        redirectAttributes.addAttribute("username", user.getUsername());
-        redirectAttributes.addFlashAttribute(user);
-//        return "redirect:/user/" + user.getUsername();
-        //вариант с {} экранирует небезопасные символы
-        return "redirect:/user/{username}";
-//for Example: if we add another attr by addAttribute (userId) but don't write it to redirect' {}
-// we will get redirect:/user/usernameValue?userId=25
-    }
-
-//    @RequestMapping(value="/register", method = RequestMethod.POST)
-//    public String processRegistration( @Valid UserForm userForm, Errors errors) throws IllegalStateException, IOException {
-//        if(errors.hasErrors()){
+//    @RequestMapping(value="/register", method=RequestMethod.POST)
+//    public String processRegistration(@RequestPart(value="profilePicture", required=false) Part fileBytes,
+//                                      RedirectAttributes redirectAttributes,
+//                                      @Valid User user, Errors errors)
+//            throws IOException {
+//        if (errors.hasErrors()) {
 //            return "registerForm";
 //        }
-//        User user = userForm.toUser();
 //        repo.save(user);
-//        MultipartFile profilePicture = userForm.getProfilePicture();
-//        //profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
-//        return "redirect:/user/"+ user.getUsername();
+//        redirectAttributes.addAttribute("username", user.getUsername());
+//        redirectAttributes.addFlashAttribute(user);
+//        return "redirect:/user/{username}";
 //    }
+
+    //@RequestPart(value = "profilePicture") MultipartFile profilePicture
+    //@RequestPart(value = "profilePicture", required=false) Part fileBytes
+//1. Part - alternative to MultipartFile for Servlet 3.0+ containers
+// we don't need configuring of StandardServletMultipartResolver bean if using Part instead of MultipartFile
+    @RequestMapping(value="/register", method = RequestMethod.POST)
+    public String processRegistration(@Valid UserForm userForm,
+                                      Errors errors, //BindingResult can be used instead of Errors
+                                      RedirectAttributes redirectAttributes)
+            throws IllegalStateException, IOException {
+        if(errors.hasErrors()){
+            return "registerForm";
+        }
+        User user = userForm.toUser();
+        repo.save(user);
+        MultipartFile profilePicture = userForm.getProfilePicture();
+        //profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
+        //TODO Later - resolve problem with multipart-requests on GlassFish server - maybe try CommonsMultipartResolver ... WebSphere is fine with StandardSMPResolver
+
+        //profilePicture.transferTo(new File(user.getUsername() + ".jpg"));
+        String imageSrc = user.getUsername() + ".jpg";
+        profilePicture.transferTo(new File(imageSrc));
+
+
+        redirectAttributes.addAttribute("username", user.getUsername());
+        redirectAttributes.addFlashAttribute(user);
+        //TODO later - send image like redirect attr ??
+
+        //вариант с {} экранирует небезопасные символы, потому лучше чем  "redirect:/user/" + user.getUsername();
+        return "redirect:/user/{username}";
+//for Example: if we add another attr by addAttribute (userId) but don't write it to redirect' {} we will get redirect:/user/dkras?userId=25
+    }
 
     @RequestMapping(value = "/{username}", method = RequestMethod.GET)
     public String showUserProfile(@PathVariable String username, Model model){
@@ -89,4 +99,14 @@ public class UserController {
         }
         return "profile";
     }
+
+
+    @RequestMapping(value = "/me", method = RequestMethod.GET)
+    public String me(){
+        System.out.println("MEEEEEEEEEEEEEEEEE");
+        return "home";
+    }
 }
+// ...Notes...
+// if name of User in Model would be "profile": @Valid User profile -> Then we must annotating it with @ModelAttribute("profile"):
+//   @Valid @ModelAttribute("profile) User profile, ... in HTML template:  th:object="${profile}"
