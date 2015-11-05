@@ -51,10 +51,11 @@ public class WebConfig extends WebMvcConfigurerAdapter {
         configurer.enable();
     }
 
-    @Override
-    public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/login").setViewName("login");
-    }
+    //Spring Security
+//    @Override
+//    public void addViewControllers(ViewControllerRegistry registry) {
+//        registry.addViewController("/login").setViewName("login");
+//    }
 
 
     //configuring of params in TwitterWebInitializer because it doesn't have a constructor and setters

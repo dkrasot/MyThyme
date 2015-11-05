@@ -41,3 +41,18 @@ public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherSer
 //    ServletRegistration.Dynamic supports configuring of:
 // multipart-requests by setMultipartConfig(), load priorities by setLoadOnStartup(), init params by setInitParameter()
 }
+
+
+//SPRING SECURITY CONFIG
+// Create classes:
+//public class SecurityWebInitializer extends AbstractSecurityWebApplicationInitializer {
+//}
+
+//@Configuration
+//@EnableWebSecurity
+//public class SecurityConfig extends WebSecurityConfigurerAdapter {
+
+//@Configuration
+//@EnableGlobalMethodSecurity(securedEnabled = true)
+//public class MethodSecurityConfig extends GlobalMethodSecurityConfiguration {
+//}

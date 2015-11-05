@@ -76,10 +76,9 @@ public class UserController {
         //profilePicture.transferTo(new File("/tmp/twitter/"+ user.getUsername() + ".jpg"));
         //TODO Later - resolve problem with multipart-requests on GlassFish server - maybe try CommonsMultipartResolver ... WebSphere is fine with StandardSMPResolver
 
-        //profilePicture.transferTo(new File(user.getUsername() + ".jpg"));
-        String imageSrc = user.getUsername() + ".jpg";
-        profilePicture.transferTo(new File(imageSrc));
-
+        profilePicture.transferTo(new File(user.getUsername() + ".jpg"));
+//        String imageSrc = user.getUsername() + ".jpg";
+//        profilePicture.transferTo(new File(imageSrc));
 
         redirectAttributes.addAttribute("username", user.getUsername());
         redirectAttributes.addFlashAttribute(user);

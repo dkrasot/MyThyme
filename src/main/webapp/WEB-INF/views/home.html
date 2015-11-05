@@ -1,6 +1,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+      xmlns:th="http://www.thymeleaf.org">
+      <!--xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3" >-->
+
 <!--<head th:include="page :: head"></head>-->
 <head>
     <!--<meta charset="UTF-8">-->
@@ -14,9 +15,9 @@
           th:href="@{/resources/style.css}"/>
 </head>
 <body>
-    <div sec:authorize="isAuthenticated()">
-        Hello there...<span sec:authentication="name">user-name</span>
-    </div>
+    <!--<div sec:authorize="isAuthenticated()">-->
+        <!--Hello there...<span sec:authentication="name">user-name</span>-->
+    <!--</div>-->
 
 
 
@@ -26,7 +27,7 @@
         <h1>Welcome to Twitter!</h1>
 
         <a th:href="@{/tweets}">Tweets</a> |
-        <!--<a th:href="@{/user/register}">Register</a>-->
+        <a th:href="@{/user/register}">Register</a>
 
         <br/>
 
