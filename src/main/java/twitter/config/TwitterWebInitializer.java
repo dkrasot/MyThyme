@@ -12,6 +12,9 @@ import javax.servlet.ServletRegistration;
 
 // in project ThymeleafExample - 2 xmls for Spring resolving of JSP files in WEB-INF dir
 // + xmls for LOG4J config
+
+
+// D:\Java\ideaProjects\MyThyme TMP FILES - classes with Hibernate Repos, Enities
 public class TwitterWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
     @Override
     protected Class<?>[] getRootConfigClasses() {

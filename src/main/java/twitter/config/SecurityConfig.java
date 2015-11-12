@@ -30,7 +30,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.formLogin().loginPage("/login")
                 .and()
-                .logout().logoutSuccessUrl("/").logoutUrl("/signout")
+                .logout().logoutSuccessUrl("/login").logoutUrl("/signout")
 //                .and()
 //                .csrf().csrfTokenRepository(csrfTokenRepository()) //trying to add CSRF support
 //                .and().csrf().disable()
